@@ -44,12 +44,5 @@ def death(how):
 		print("You obviously do not want to play.  Ciao!")
 	
 		
-	
-#	finally:
-		#print("You must be tired and need a break!  Good-bye!")
-
-#	def goForward(steps):
-#	print(f"You took {steps} forward.  Now what would you like to do?")
 
 start()
-#dead("You have made a horrible decision and you have failed as father.  Your number one job is to keep your son alive even at your own expense.")

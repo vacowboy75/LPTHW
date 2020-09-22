@@ -120,7 +120,7 @@ def batsSnakes():
 	if rocks < 5:
 		print("You do not have enough to kill all of the bats.")
 		death("You piss off one of the bats and it bites you and gives you rabies.  You die from rabies!")
-	elif rocks = 5:
+	elif rocks == 5:
 		print("Somehow, by the grace of God, you blindly hit of the screeching bats and neutralize the threat.")
 		#escape()
 	else:

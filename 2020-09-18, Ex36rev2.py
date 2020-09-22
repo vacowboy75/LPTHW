@@ -5,7 +5,7 @@ def start():
 
 	choice = input("Do you want to go in or stay outside?  > ")
 	if "GO" in choice or "go in" in choice or "Go In" in choice or "go" in choice:
-		print("The ground tremors and rocks seal you in separating you from your son.  While he can barely hear you, you tell him to hang tight and try to find help.")
+		print("The ground tremors and suddenly rocks fall and seal you in separating you from your son.  You yell out trying to determine whether your son is ok.  While he can barely hear you, you tell him to hang tight and try to find help.")
 		stepForward()
 	elif "STAY" in choice or "stay outside" in choice:
 		death("How are you going to survive if you do nothing?  You lose!")
@@ -42,14 +42,14 @@ def death(how):
 	#		print("Invalid selection!!  Enter 1 for Yes or 2 for No.")
 
 def stepForward():
-	print("Slow is smooth, smooth is fast.  Going too fast in an unstable structure will cause it to crumble.  You have no light and you have no idea what is in front of you.  Do you wish to continue?  Enter Y or N.")
+	print("Slow is smooth, smooth is fast.  Going too fast in an unstable structure will cause it to crumble.  You have no light and you have no idea what is in front of you.  You begin to truly feel the gravity of your situation and fear begins paralyze your body.  Do you wish to continue?  Enter Y or N.")
 	choice = input("> ")
 	if "Y" in choice or "y" in choice:
 		while True:
 			try:
 				steps = int(input("How many steps forward do you wish to take?\n>"))
 				if steps == 1:
-					print("You took one step forward and you reach out and feel for rocks ahead of you.")
+					print("You face your fear and take one step forward while reaching out to feel for rocks ahead of you.")
 				elif steps > 1:
 					death("You walked into the edge of a sharp rock and gouged your eye out.  You lose!")
 				break # if either of the conditions above are met, the loop is broken.  Otherwise, the loop will continue as long as the user keeps entering something other than an integer.
@@ -63,13 +63,13 @@ def stepForward():
 def findWeapon():
 	print("You can feel the rocks ahead, and one of them seems quite sharp.  Perhaps, if you can grab hold of that rock, you can use it as a tool or weapon.  However, if you grab that rock and could bring certain and instanenous death.  What will you do?  Will you YANK the rock, slowly SHIMMY the rock, or PRAY for miracle?")
 	choice = input("> ")
-	if choice == "yank":
+	if "YANK" in choice or "yank" in choice:
 		print("More rocks crumble around you, but you manage to survive.  Now you have a rock that you can use to aid in your escape.  To your right, you notice that the rocks seem looser than the others and you decide to slowly dig your way to freedom.")
 		batsSnakes()
-	elif choice == "shimmy":
+	elif "SHIMMY" in choice or "shimmy" in choice:
 		death("Moving the rock made the structure more stable and the cave collapses on you!  You're dead.")
-	elif choice == "PRAY":
-		death("I believe in the power of prayer, but your son's survival is dependent upon you doing something for yourself.  You died while praying.")
+	elif "pray" in choice or "PRAY" in choice:
+		death("I believe in the power of prayer, but your son's survival is dependent upon you doing something for yourself.  Don't you know faith without works is dead?  You died while praying.")
 	else:
 		death("C'mon Man!")
 
@@ -112,7 +112,19 @@ def batsSnakes():
 		#else:
 		#	death("I don't know what that means.")
 
-		print("With the snake dead and you exhausted, you decide to sit down and take another break!  Well deserved.")
+		print("With the snake dead and you exhausted, you decide to sit down and take another break!  Well deserved.\n\n\n\n")
+
+	print("As you sit down and begin to relax, your realize how worn out you actually are, you can't help it and your eyes begin to close.  Out of nowhere you hear the screeches of bats.  You suddenly jump up and grab the rock that you had.  You throw the rock as hard as you can in the direction of the screeching sounds, hit one of the bats flush.  The bat falls to the ground with a thud that you can hear over the screeches of the other bats.  Unfortunately you cannot tell how many bats remain, but you know that there is more than one bat headed in your direction.  How many rocks do you pick up and throw at the bats? ")
+
+	rocks = int(input("> "))
+	if rocks < 5:
+		print("You do not have enough to kill all of the bats.")
+		death("You piss off one of the bats and it bites you and gives you rabies.  You die from rabies!")
+	elif rocks == 5:
+		print("Somehow, by the grace of God, you blindly hit of the screeching bats and neutralize the threat.")
+		#escape()
+	else:
+		print("You do no")
 
 def pokeAgain():
 	print("Would you like to try and poke the snake again?  Enter 1 for Yes or 2 for No.")

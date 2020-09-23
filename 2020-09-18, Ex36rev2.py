@@ -3,11 +3,13 @@
 def start():
 	print("""Your airplane was struck by a missle and you have crash-landed on a mountain side.  Your communications were destroyed.  Everyone onboard has perished except for you and your 11 year-old son.  After looking through the rubble, you were able to secure enough food to last three days at the most.  You have no means to alert anyone of your whereabouts.  How will you survive?  Will your son make it, or will you leave him to fend for himself?\n\nAbout 150 yards ahead, you see something unusual.  As you and your son slowly stagger towards the site, you determine that it is a cave.  What will you do?  Will you GO in or STAY outside?""")
 
+	acceptableWordsGo = ["GO", "go in", "Go In", "go"] # make options a list variable as opposed to a constant
+	acceptableWordsStay = ["STAY", "stay outside", "STAY outside"]
 	choice = input("Do you want to go in or stay outside?  > ")
-	if "GO" in choice or "go in" in choice or "Go In" in choice or "go" in choice:
+	if choice in acceptableWordsGo:
 		print("The ground tremors and suddenly rocks fall and seal you in separating you from your son.  You yell out trying to determine whether your son is ok.  While he can barely hear you, you tell him to hang tight and try to find help.")
 		stepForward()
-	elif "STAY" in choice or "stay outside" in choice:
+	elif choice in acceptableWordsStay:
 		death("How are you going to survive if you do nothing?  You lose!")
 	else:
 		death("Don't play yourself!  Your choices are to go in or stay outside.  Bye LOSER!")
@@ -54,7 +56,7 @@ def stepForward():
 					death("You walked into the edge of a sharp rock and gouged your eye out.  You lose!")
 				break # if either of the conditions above are met, the loop is broken.  Otherwise, the loop will continue as long as the user keeps entering something other than an integer.
 			except ValueError:
-				print("Please enter a number.")
+				print("Please enter either Y or N.")
 		findWeapon()
 	else:
 		#print("Upper case letters only please.")
@@ -62,6 +64,7 @@ def stepForward():
 
 def findWeapon():
 	print("You can feel the rocks ahead, and one of them seems quite sharp.  Perhaps, if you can grab hold of that rock, you can use it as a tool or weapon.  However, if you grab that rock and could bring certain and instanenous death.  What will you do?  Will you YANK the rock, slowly SHIMMY the rock, or PRAY for miracle?")
+	#acceptableYank = ["YANK", "yank"]  Is it worth changing the code for two a list variable as opposed to leaving the constants?
 	choice = input("> ")
 	if "YANK" in choice or "yank" in choice:
 		print("More rocks crumble around you, but you manage to survive.  Now you have a rock that you can use to aid in your escape.  To your right, you notice that the rocks seem looser than the others and you decide to slowly dig your way to freedom.")
@@ -74,12 +77,15 @@ def findWeapon():
 		death("C'mon Man!")
 
 def batsSnakes():
-	print("You have spent the last hour digging through rubble and you have created a tunnel that leads to a clearing.  While you still can't see, you can feel that no more rocks are immediately ahead of you.  Here, you decide to take a much needed break.\n\nAfter a few minutes, you hear something hissing that sounds like the hiss of a snake.  Your heart rate elevates, but you refuse to panic.  Your prior military training kicks in and you quickly remember that your son's survival is dependant upon you getting through this situation.  You decide to use your rock to poke at that the snake.  However, the sharp edge of the rock was dulled because you used it to dig this point.  What will you do?  Do you THROW the ROCK and hope that you hit the snake, or do you POKE at the SNAKE and hope you have enough of a sharp edge to kill it?")
+	print("You have spent the last hour digging through rubble and you have created a tunnel that leads to a clearing.  While you still can't see, you can feel that no more rocks are immediately ahead of you.  Here, you decide to take a much needed break.\n\nAfter a few minutes, you hear something hissing that sounds like the hiss of a snake.  Your heart rate elevates, but you refuse to panic.  Your prior military training kicks in and you quickly remember that your son's survival is dependant upon you getting through this situation.  You consider using the rock to poke at the snake.  However, the sharp edge of the rock was dulled because you used it to dig through the rubble to get to this point.  What will you do?  Do you THROW the ROCK and hope that you hit the snake, or do you POKE at the SNAKE and hope you have enough of a sharp edge to kill it?")
+
+	acceptableThrow = ["THROW ROCK", "throw rock", "Throw rock", "Throw the Rock"]
+	acceptablePoke = ["Poke Snake", "Poke the Snake", "POKE SNAKE"]
 
 	choice = input("> ")
-	if choice == "throw rock":
+	if choice in acceptableThrow:
 		death("You threw the rock but landed only a glancing blow on the snake.  The snake lurches at you and bites you.  It administers a lethal dose of venom and kills you within a matter of minutes.  You died.")
-	elif choice == "poke snake":
+	elif choice in acceptablePoke:
 		print("How many times do you need think you need to poke the snake in order to kill it?")
 		attempts = int(input ("> "))
 		#print (">>>>", attempts)

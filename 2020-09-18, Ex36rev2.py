@@ -6,19 +6,14 @@ def start():
     # acceptableWordsGo = ["GO", "go in", "Go In", "go"] # make options a list variable as opposed to a constant
     #acceptableWordsStay = ["STAY", "stay outside", "STAY outside"]
     #choice = input("Do you want to go in or stay outside?  > ")
-    while True:
-        try:
     if choice == "GO":
         print("The ground tremors and suddenly rocks fall and seal you in separating you from your son.  You yell out trying to determine whether your son is ok.  While he can barely hear you, you tell him to hang tight and try to find help.")
         stepForward()
-        break
     elif choice == "STAY":
         death("How are you going to survive if you do nothing?  You lose!")
     else:
         death(
             "Don't play yourself!  Your choices are to GO in or STAY outside.  Bye LOSER!")
-    except ValueError:
-        print("Please choose GO or STAY.")
 
 
 def tryAgain():

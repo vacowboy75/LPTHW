@@ -1,7 +1,9 @@
 # This is an attempt at a text-based survival game game.  I'm really not sure how it is going to work out.
 
 def start():
+
     choice = input("""Your airplane was struck by a missle and you have crash-landed on a mountain side.  Your communications were destroyed.  Everyone onboard has perished except for you and your 11 year-old son.  After looking through the rubble, you were able to secure enough food to last three days at the most.  You have no means to alert anyone of your whereabouts.  How will you survive?  Will your son make it, or will you leave him to fend for himself?\n\nAbout 150 yards ahead, you see something unusual.  As you and your son slowly stagger towards the site, you determine that it is a cave.  What will you do?  Will you GO in or STAY outside?\n> """).strip().upper()
+
 
     # acceptableWordsGo = ["GO", "go in", "Go In", "go"] # make options a list variable as opposed to a constant
     #acceptableWordsStay = ["STAY", "stay outside", "STAY outside"]
@@ -13,6 +15,7 @@ def start():
         death("How are you going to survive if you do nothing?  You lose!")
     else:
         death("Your choices are GO or STAY.")
+
 
 
 def tryAgain():
@@ -54,15 +57,20 @@ def stepForward():
     if "Y" in choice or "y" in choice:
         try:
             while True:
-                steps = int(input("How many steps forward do you wish to take?\n>"))
+
+                steps = int(
+                    input("How many steps forward do you wish to take?\n>"))
                 if steps == 1:
-                    print("You face your fear and take one step forward while reaching out to feel for rocks ahead of you.")
+                    print(
+                        "You face your fear and take one step forward while reaching out to feel for rocks ahead of you.")
                     break
                 elif steps > 1:
-                    death("You walked into the edge of a sharp rock and gouged your eye out.  You lose!")
+                    death(
+                        "You walked into the edge of a sharp rock and gouged your eye out.  You lose!")
                 # break # if either of the conditions above are met, the loop is broken.  Otherwise, the loop will continue as long as the user keeps entering something other than an integer.
         except ValueError:
-            print("This is not a valid option.")
+            print("Please enter either Y or N.")
+
         findWeapon()
     else:
         #print("Upper case letters only please.")

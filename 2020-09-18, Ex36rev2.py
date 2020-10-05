@@ -60,6 +60,11 @@ def stepForward():
 
                 steps = int(
                     input("How many steps forward do you wish to take?\n>"))
+                if steps < 0:
+                    death("How is going backwards going to help you?  You lose, DUH!!")
+                if steps == 0:
+                    death(
+                        "You go nowhere while standing still.  Ultimately you and your son both die of starvation!")
                 if steps == 1:
                     print(
                         "You face your fear and take one step forward while reaching out to feel for rocks ahead of you.")
@@ -69,7 +74,8 @@ def stepForward():
                         "You walked into the edge of a sharp rock and gouged your eye out.  You lose!")
                 # break # if either of the conditions above are met, the loop is broken.  Otherwise, the loop will continue as long as the user keeps entering something other than an integer.
         except ValueError:
-            print("Please enter either Y or N.")
+            print("Invalid response.  Please enter a whole number.")
+            stepForward()  # force user to enter an answer.
 
         findWeapon()
     else:

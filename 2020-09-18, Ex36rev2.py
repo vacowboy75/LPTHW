@@ -53,8 +53,8 @@ def death(how):
 
 def stepForward():
     print("Slow is smooth, smooth is fast.  Going too fast in an unstable structure will cause it to crumble.  You have no light and you have no idea what is in front of you.  You begin to truly feel the gravity of your situation and fear begins paralyze your body.  Do you wish to continue?  Enter Y or N.")
-    choice = input("> ")
-    if "Y" in choice or "y" in choice:
+    choice = input("> ").upper()
+    if choice == "Y":
         try:
             while True:
 

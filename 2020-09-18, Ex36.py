@@ -89,7 +89,7 @@ def findWeapon():
         print("More rocks crumble around you, but you manage to survive.  Now you have a rock that you can use to aid in your escape.  To your right, you notice that the rocks seem looser than the others and you decide to slowly dig your way to freedom.")
         pokeSnakes()
     elif choice == "SHIMMY":  # in choice or "shimmy" in choice:
-        death("Shimmying the rock made the structure unstable and the cave collapses on you!  You're dead.")
+        death("Shimmying the rock made the more structure unstable and the cave collapses on you!  You're dead.")
     elif choice == "PRAY":  # "pray" in choice or "PRAY" in choice:
         death("I believe in the power of prayer, but your son's survival is dependent upon you doing something for yourself.  Don't you know faith without works is dead?  You died while praying.")
     else:
@@ -136,7 +136,8 @@ def pokeSnakes():
                 break
             elif attempts == 7:
                 print("You strike the snake", attempts,
-                      "times, and you killed it!")
+                      "times, and you killed it!\n\n\nWith the snake dead and you exhausted, you decide to sit down and take another break!  Well deserved.\n\n\n\n")
+                bats()
                 break
             elif attempts > 7:
                 death("You have worn yourself poking at the snake and missing.  The snake bites you, injecting toxic amounts of venom into your blood stream.  You're dead!")
@@ -152,8 +153,6 @@ def pokeSnakes():
 # Eelse:
         # else:
         #	death("I don't know what that means.")
-
-        print("With the snake dead and you exhausted, you decide to sit down and take another break!  Well deserved.\n\n\n\n")
 
 
 def bats():

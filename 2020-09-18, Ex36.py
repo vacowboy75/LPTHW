@@ -109,51 +109,49 @@ def pokeSnakes():
         death("You threw the rock but landed only a glancing blow on the snake.  The snake lurches at you and bites you.  It administers a lethal dose of venom and kills you within a matter of minutes.  You died.")
     # elif choice in acceptablePoke:
     elif choice == "POKE":
-        attempts = int(input(
-            "How many times do you think you need to poke the snake in order to kill it?\n\n>"))
-        #   attempts = int(input ("> "))
-        #   print (">>>>", attempts)
-    try:
-        while True:
-            if attempts == 0:
-                print(
-                    "How are you doing to kill the snake if you don't even poke at it?  The snakes bites and kills you.")
-                pokeAgain()
-                break
-            elif attempts == 1:
-                print("You poke at the snake", attempts, "time but miss.")
-                pokeAgain()
-                break
-            elif 2 <= attempts <= 4:
-                print("You strike the snake", attempts,
-                      "times but not enough to do kill it!")
-                pokeAgain()
-                break
-            elif 5 <= attempts <= 6:
-                print("You strike the snake", attempts,
-                      "times, and you dealt a crippling blow, but still not enough to kill it!")
-                pokeAgain()
-                break
-            elif attempts == 7:
-                print("You strike the snake", attempts,
-                      "times, and you killed it!\n\n\nWith the snake dead and you exhausted, you decide to sit down and take another break!  Well deserved.\n\n\n\n")
-                bats()
-                break
-            elif attempts > 7:
-                death("You have worn yourself poking at the snake and missing.  The snake bites you, injecting toxic amounts of venom into your blood stream.  You're dead!")
-            else:
-                print("Invalid Number:")
-    except UnboundLocalError:
-        print(">>> I got here.")
-        print(attempts, "is not an acceptable value.  Please enter an integer value.")
-        pokeRepeat()
-    except ValueError:
-        print("Please enter an integer value.")
-        pokeSnakes()
-    else:
-        print("Not an option!  The options are THROW or POKE.\n\n")
-        pokeSnakes()
+        try:
+            print(
+                "How many times do you think you need to poke the snake in order to kill it?\n")
+            while True:
+                attempts = int(input(">"))
+                if attempts == 0:
+                    print(
+                        "How are you doing to kill the snake if you don't even poke at it?  The snakes bites and kills you.")
+                    pokeAgain()
+                    break
+                elif attempts == 1:
+                    print("You poke at the snake", attempts, "time but miss.")
+                    pokeAgain()
+                    break
+                elif 2 <= attempts <= 4:
+                    print("You strike the snake", attempts,
+                        "times but not enough to do kill it!")
+                    pokeAgain()
+                    break
+                elif 5 <= attempts <= 6:
+                    print("You strike the snake", attempts,
+                        "times, and you dealt a crippling blow, but still not enough to kill it!")
+                    pokeAgain()
+                    break
+                elif attempts == 7:
+                    print("You strike the snake", attempts,
+                        "times, and you killed it!\n\n\nWith the snake dead and you exhausted, you decide to sit down and take another break!  Well deserved.\n\n\n\n")
+                    bats()
+                    break
+                elif attempts > 7:
+                    death("You have worn yourself poking at the snake and missing.  The snake bites you, injecting toxic amounts of venom into your blood stream.  You're dead!")
+                else:
+                    print("Invalid Number:")
 
+        except ValueError:
+            print(">>> I got here.....ValueError")
+            print(
+                attempts, "is not an acceptable value.  Please enter an integer value.")
+            pokeRepeat()
+        except UnboundLocalError:
+            print(">>> I got here.....UnboundLocalError")
+            print("UnboundLocalError occured.")
+            pokeRepeat()
 
 def pokeAgain():
     print("Would you like to try and poke the snake again?  Enter 1 for Yes or 2 for No.")
@@ -213,11 +211,9 @@ def pokeRepeat():
 
 def bats():
     rocks = int(input("As you sit down and begin to relax, you realize how worn out you actually are; you can't help it and your eyes begin to close.  Out of nowhere, you hear the screeches of bats.  You suddenly jump up and grab the rock that you had.  You throw the rock as hard as you can in the direction of the screeching sounds, hitting one of the bats flush.  The bat falls to the ground with a thud that you can hear over the screeches of the other bats.  Unfortunately you cannot tell how many bats remain, but you know that there is more than one bat headed in your direction.  How many rocks do you pick up and throw at the bats?\n>"))
-   # try:
     if rocks < 5:
         print("You do not have enough to kill all of the bats.")
-        death(
-            "You piss off one of the bats and it bites you and gives you rabies.  You die from rabies!")
+        death("You piss off one of the bats and it bites you and gives you rabies.  You die from rabies!")
     elif rocks == 5:
         print("Somehow, by the grace of God, you blindly hit one of the screeching bats and neutralize the threat.")
     elif rocks > 5:
@@ -228,7 +224,7 @@ def bats():
 #    except UnboundLocalError:
 #        print(">>>> I got here")
 #       print(rocks, "is not an acceptable value.  Please enter an integer value.")
-        # bats()
+    # bats()
 #    except ValueError:
 #        print(">>>Print value error....I got here!")
  #       print(rocks, "is not an acceptable value.  Please enter an integer value.")

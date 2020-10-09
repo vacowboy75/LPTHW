@@ -8,10 +8,11 @@ def start():
     #   acceptableWordsStay = ["STAY", "stay outside", "STAY outside"]
     #   choice = input("Do you want to go in or stay outside?  > ")
     if choice == "GO":
-        print("The ground tremors and suddenly rocks fall and seal you in separating you from your son.  You yell out trying to determine whether your son is ok.  While he can barely hear you, you tell him to hang tight and try to find help.")
+        print("The ground tremors and suddenly rocks fall and seal you in separating you from your son.  You yell out trying to determine whether your son is ok.  While he can barely hear you, you tell him to hang tight and try to find help.\n")
+        print(80 * "=" + "\n")
         stepForward()
     elif choice == "STAY":
-        death("How are you going to survive if you do nothing?  You lose!")
+        death("How are you going to survive if you do nothing?  You lose!\a")
     else:
         death("Your choices are GO or STAY.")
 
@@ -27,10 +28,10 @@ def tryAgain():
                 print("Thanks for playing.  Good-bye.")
                 break
             else:
-                ("Invalid selection!!  Enter 1 for Yes or 2 for No.")
+                ("\aInvalid selection!!  Enter 1 for Yes or 2 for No.")
             # break
         except ValueError:
-            print("Invalid selection!!  Enter 1 for Yes or 2 for No.")
+            print("\aInvalid selection!!  Enter 1 for Yes or 2 for No.")
 
 
 def death(how):
@@ -125,17 +126,17 @@ def pokeSnakes():
                     break
                 elif 2 <= attempts <= 4:
                     print("You strike the snake", attempts,
-                        "times but not enough to do kill it!")
+                          "times but not enough to do kill it!")
                     pokeAgain()
                     break
                 elif 5 <= attempts <= 6:
                     print("You strike the snake", attempts,
-                        "times, and you dealt a crippling blow, but still not enough to kill it!")
+                          "times, and you dealt a crippling blow, but still not enough to kill it!")
                     pokeAgain()
                     break
                 elif attempts == 7:
                     print("You strike the snake", attempts,
-                        "times, and you killed it!\n\n\nWith the snake dead and you exhausted, you decide to sit down and take another break!  Well deserved.\n\n\n\n")
+                          "times, and you killed it!\n\n\nWith the snake dead and you exhausted, you decide to sit down and take another break!  Well deserved.\n\n\n\n")
                     bats()
                     break
                 elif attempts > 7:
@@ -152,6 +153,7 @@ def pokeSnakes():
             print(">>> I got here.....UnboundLocalError")
             print("UnboundLocalError occured.")
             pokeRepeat()
+
 
 def pokeAgain():
     print("Would you like to try and poke the snake again?  Enter 1 for Yes or 2 for No.")

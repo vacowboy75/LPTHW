@@ -110,10 +110,10 @@ def pokeSnakes():
         death("You threw the rock but landed only a glancing blow on the snake.  The snake lurches at you and bites you.  It administers a lethal dose of venom and kills you within a matter of minutes.  You died.")
     # elif choice in acceptablePoke:
     elif choice == "POKE":
-        try:
-            print(
-                "How many times do you think you need to poke the snake in order to kill it?\n")
-            while True:
+        while True:
+            try:
+                print(
+                    "How many times do you think you need to poke the snake in order to kill it?\n")
                 attempts = int(input(">"))
                 if attempts == 0:
                     print(
@@ -126,17 +126,17 @@ def pokeSnakes():
                     break
                 elif 2 <= attempts <= 4:
                     print("You strike the snake", attempts,
-                          "times but not enough to do kill it!")
+                        "times but not enough to do kill it!")
                     pokeAgain()
                     break
                 elif 5 <= attempts <= 6:
                     print("You strike the snake", attempts,
-                          "times, and you dealt a crippling blow, but still not enough to kill it!")
+                        "times, and you dealt a crippling blow, but still not enough to kill it!")
                     pokeAgain()
                     break
                 elif attempts == 7:
                     print("You strike the snake", attempts,
-                          "times, and you killed it!\n\n\nWith the snake dead and you exhausted, you decide to sit down and take another break!  Well deserved.\n\n\n\n")
+                        "times, and you killed it!\n\n\nWith the snake dead and you exhausted, you decide to sit down and take another break!  Well deserved.\n\n\n\n")
                     bats()
                     break
                 elif attempts > 7:
@@ -144,15 +144,19 @@ def pokeSnakes():
                 else:
                     print("Invalid Number:")
 
-        except ValueError:
-            print(">>> I got here.....ValueError")
-            print(
-                attempts, "is not an acceptable value.  Please enter an integer value.")
-            pokeRepeat()
-        except UnboundLocalError:
-            print(">>> I got here.....UnboundLocalError")
-            print("UnboundLocalError occured.")
-            pokeRepeat()
+            except ValueError:
+                print(">>> I got here.....ValueError")
+                print(
+                    attempts, "is not an acceptable value.  Please enter an integer value.")
+                pokeRepeat()
+            except UnboundLocalError:
+                print(">>> I got here.....UnboundLocalError")
+                print("UnboundLocalError occured.")
+                pokeRepeat()
+    else:
+        print("That is not an option.  Your choices are THROW or POKE.\a\n")
+        print(80*"=" + "\n")
+        pokeSnakes()
 
 
 def pokeAgain():

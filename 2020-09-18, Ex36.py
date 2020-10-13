@@ -101,20 +101,16 @@ def findWeapon():
 def pokeSnakes():
     choice = input("You have spent the last hour digging through rubble and you have created a tunnel that leads to a clearing.  While you still can't see, you can feel that no more rocks are immediately ahead of you.  Here, you decide to take a much needed break.\n\nAfter a few minutes, you hear something hissing that sounds like the hiss of a snake.  Your heart rate elevates, but you refuse to panic.  Your prior military training kicks in and you quickly remember that your son's survival is dependant upon you getting through this situation.  You consider using the rock to poke at the snake.  However, the sharp edge of the rock was dulled because you used it to dig through the rubble to get to this point.  What will you do?  Do you THROW the rock and hope that you hit the snake, or do you POKE at the snake and hope you have enough of a sharp edge to kill it?\n> ").strip().upper()
 
-    #   acceptableThrow = ["THROW ROCK", "throw rock", "Throw rock", "Throw the Rock"]
-    #   acceptablePoke = ["Poke Snake", "Poke the Snake", "POKE SNAKE"]
+    attempts = ""
 
-    #   choice = input("> ")
-    # if choice in acceptableThrow:
     if choice == "THROW":
         death("You threw the rock but landed only a glancing blow on the snake.  The snake lurches at you and bites you.  It administers a lethal dose of venom and kills you within a matter of minutes.  You died.")
     # elif choice in acceptablePoke:
     elif choice == "POKE":
         while True:
             try:
-                print(
-                    "How many times do you think you need to poke the snake in order to kill it?\n")
-                attempts = int(input(">"))
+                attempts = int(input(
+                    "How many times do you think you need to poke the snake in order to kill it?\n>"))
                 if attempts == 0:
                     print(
                         "How are you doing to kill the snake if you don't even poke at it?  The snakes bites and kills you.")
@@ -126,17 +122,17 @@ def pokeSnakes():
                     break
                 elif 2 <= attempts <= 4:
                     print("You strike the snake", attempts,
-                        "times but not enough to do kill it!")
+                          "times but not enough to do kill it!")
                     pokeAgain()
                     break
                 elif 5 <= attempts <= 6:
                     print("You strike the snake", attempts,
-                        "times, and you dealt a crippling blow, but still not enough to kill it!")
+                          "times, and you dealt a crippling blow, but still not enough to kill it!")
                     pokeAgain()
                     break
                 elif attempts == 7:
                     print("You strike the snake", attempts,
-                        "times, and you killed it!\n\n\nWith the snake dead and you exhausted, you decide to sit down and take another break!  Well deserved.\n\n\n\n")
+                          "times, and you killed it!\n\n\nWith the snake dead and you exhausted, you decide to sit down and take another break!  Well deserved.\n\n\n\n")
                     bats()
                     break
                 elif attempts > 7:
@@ -145,74 +141,76 @@ def pokeSnakes():
                     print("Invalid Number:")
 
             except ValueError:
-                print(">>> I got here.....ValueError")
                 print(
-                    attempts, "is not an acceptable value.  Please enter an integer value.")
-                pokeRepeat()
-            except UnboundLocalError:
-                print(">>> I got here.....UnboundLocalError")
-                print("UnboundLocalError occured.")
-                pokeRepeat()
+                    "You entered a non integer value.  Please enter an integer value.\a\n")
+                print(78 * "=" + "\n")
+                pokeSnakes()
     else:
         print("That is not an option.  Your choices are THROW or POKE.\a\n")
-        print(80*"=" + "\n")
+        print(78 * "=" + "\n")
         pokeSnakes()
 
 
 def pokeAgain():
-    print("Would you like to try and poke the snake again?  Enter 1 for Yes or 2 for No.")
+    choice = int(input(
+        "Would you like to try and poke the snake again?  Enter 1 for Yes or 2 for No.\n>"))
     while True:
-        choice = int(input("> "))
         try:
             if choice == 1:
-                pokeRepeat()
+                pokeSnakes()
+                break
             elif choice == 2:
                 print("Thanks for playing.  Good-bye.")
+                break
             else:
                 print("Invalid selection!!\n\n  Enter 1 for Yes or 2 for No.")
+                break
         except ValueError:
             print("Enter 1 for Yes or 2 for No.")
         # break
 
 
-def pokeRepeat():
-    attempts = int(input(
-        "How many times do you think you need to poke the snake in order to kill it?\n>"))
+# def pokeRepeat():
+#    attempts = ""
+#    attempts = int(input(
+#        "How many times do you think you need to poke the snake in order to kill it?\n>"))
 
-    try:  # print (">>>>", attempts)
-        while attempts <= 7:
-            if attempts == 0:
-                print(
-                    "How are you doing to kill the snake if you don't even poke at it?  The snakes bites and kills you.")
-                pokeAgain()
-                break
-            elif attempts == 1:
-                print("You poke at the snake", attempts, "time but miss.")
-                pokeAgain()
-                break
-            elif 2 <= attempts <= 4:
-                print("You strike the snake", attempts,
-                      "times but not enough to do kill it!")
-                pokeAgain()
-                break
-            elif 5 <= attempts <= 6:
-                print("You strike the snake", attempts,
-                      "times, and you dealt a crippling blow, but still not enough to kill it!")
-                pokeAgain()
-                # break
-            elif attempts == 7:
-                print("You strike the snake", attempts,
-                      "times, and you killed it!")
-                break
-            else:
-                print("Invalid Number:")
-            break
-        if attempts > 7:
-            death("You have worn yourself poking at the snake and missing.  The snake bites you, injecting toxic amounts of venom into your blood stream.  You're dead!")
-    except UnboundLocalError:
-        print(">>> I got here.")
-        print(attempts, "is not an acceptable value.  Please enter an integer value.")
-        pokeRepeat()
+#    try:  # print (">>>>", attempts)
+#        while attempts <= 7:
+#            if attempts == 0:
+#                print(
+#                    "How are you doing to kill the snake if you don't even poke at it?  The snakes bites and kills you.")
+#                pokeAgain()
+#                break
+#            elif attempts == 1:
+#                print("You poke at the snake", attempts, "time but miss.")
+#               pokeAgain()
+#                break
+#            elif 2 <= attempts <= 4:
+#                print("You strike the snake", attempts,
+#                      "times but not enough to do kill it!")
+#                pokeAgain()
+#                break
+#            elif 5 <= attempts <= 6:
+#                print("You strike the snake", attempts,
+#                      "times, and you dealt a crippling blow, but still not enough to kill it!")
+#                pokeAgain()
+#                # break
+#            elif attempts == 7:
+#                print("You strike the snake", attempts,
+#                      "times, and you killed it!")
+#                break
+#            else:
+#                print("Invalid Number:")
+#            break
+#        if attempts > 7:
+#            death("You have worn yourself poking at the snake and missing.  The snake bites you, injecting toxic amounts of venom into your blood stream.  You're dead!")
+#    except ValueError:
+#        print("f")
+#    except UnboundLocalError:
+#        print(">>> I got here.")
+#        print(attempts, "is not an acceptable value.  Please enter an integer value.")
+#        pokeRepeat()
 
 
 def bats():
@@ -238,3 +236,4 @@ def bats():
 
 
 start()
+# pokeSnakes()
